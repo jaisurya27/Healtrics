@@ -26,7 +26,7 @@ def phone_otp_send(message,contact_number):
     account_sid = settings.TWILIO_ACCOUNT_SID
     auth_token = settings.TWILIO_AUTH_TOKEN
     client = Client(account_sid, auth_token)
-    client.messages.create(body=str(message),from_=str(contact_number))
+    client.messages.create(body=str(message),from_=settings.SMS_HOST_NUMBER,to=contact_number)
 
 def home(request):
     return render(request,'accounts/index.html')
@@ -41,66 +41,167 @@ def admin_signup(request):
         user = User(email=email, mobile_number=mobile_number, user_type='admin',email_otp=email_otp, mobile_otp=mobile_otp, is_admin=True)
         user.set_password(password)
         user.save()
+        mail_send("account_verification",email_otp,settings.EMAIL_HOST_USER,[email])
+        phone_otp_send(mobile_otp,mobile_number)
         auth.login(request,user,backend=None)
         return redirect('admin_verify')
     else:
         return render(request,'accounts/admin_signup.html')
+
+def admin_verify(request):
+    if request.method=='POST':
+        email_otp = request.POST['email_otp']
+        mobile_otp = request.POST['mobile_otp']
+        user = User.objects.filter(pk=request.user.pk).first()
+        if user.email_otp==email_otp and user.mobile_otp==mobile_otp:
+            user.is_email_verified=True
+            user.is_mobile_verified=True
+            user.save()
+            return redirect('admin_dashboard') 
+    else:
+        return render(request,'accounts/admin_verify.html')
 
 def admin_login(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
         user = auth.authenticate(username=email,password=password)
-        if user is not None:
+        if user is not None and user.user_type=='admin':
             auth.login(request,user,backend=None)
-            return redirect('admin_view_exercise')
+            return redirect('admin_dashboard')
         else:
             return redirect('admin_login')
     else:
         return render(request,'accounts/admin_login.html')
 
-def hospitals_signup(request):
+def hospital_signup(request):
     if request.method == "POST":
         email = request.POST['email']
+        mobile_number = request.POST['mobile_number']
         password = request.POST['password']
-        user = User(email=email)
+        email_otp = generateOTP()
+        mobile_otp = generateOTP()
+        user = User(email=email, mobile_number=mobile_number, user_type='hospitals',email_otp=email_otp, mobile_otp=mobile_otp, is_admin=True)
         user.set_password(password)
         user.save()
+        mail_send("account_verification",email_otp,settings.EMAIL_HOST_USER,[email])
+        phone_otp_send(mobile_otp,mobile_number)
         auth.login(request,user,backend=None)
-        return redirect('add_profile')
+        return redirect('hospitals_verify')
     else:
-        return render(request,'accounts/hospital_signup.html')
+        return render(request,'accounts/hospitals_signup.html')
 
-def hospitals_login(request):
+def hospital_verify(request):
+    if request.method=='POST':
+        email_otp = request.POST['email_otp']
+        mobile_otp = request.POST['mobile_otp']
+        user = User.objects.filter(pk=request.user.pk).first()
+        if user.email_otp==email_otp and user.mobile_otp==mobile_otp:
+            user.is_email_verified=True
+            user.is_mobile_verified=True
+            user.save()
+            return redirect('view_hospital_profile') 
+    else:
+        return render(request,'accounts/hospitals_verify.html')
+
+def hospital_login(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
         user = auth.authenticate(username=email,password=password)
-        if user is not None:
+        if user is not None and user.user_type=='hospitals':
             auth.login(request,user,backend=None)
-            return redirect('view_profile')
+            return redirect('view_hospital_profile')
         else:
             return redirect('hospitals_login')
     else:
         return render(request,'accounts/hospitals_login.html')
 
-def blood_bank_signup(request):
-    pass
+def bloodbanks_signup(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        mobile_number = request.POST['mobile_number']
+        password = request.POST['password']
+        email_otp = generateOTP()
+        mobile_otp = generateOTP()
+        user = User(email=email, mobile_number=mobile_number, user_type='blood_banks',email_otp=email_otp, mobile_otp=mobile_otp, is_admin=True)
+        user.set_password(password)
+        user.save()
+        mail_send("account_verification",email_otp,settings.EMAIL_HOST_USER,[email])
+        phone_otp_send(mobile_otp,mobile_number)
+        auth.login(request,user,backend=None)
+        return redirect('bloodbanks_verify')
+    else:
+        return render(request,'accounts/bloodbanks_signup.html')
 
-def blood_bank_login(request):
-    pass
+def bloodbanks_verify(request):
+    if request.method=='POST':
+        email_otp = request.POST['email_otp']
+        mobile_otp = request.POST['mobile_otp']
+        user = User.objects.filter(pk=request.user.pk).first()
+        if user.email_otp==email_otp and user.mobile_otp==mobile_otp:
+            user.is_email_verified=True
+            user.is_mobile_verified=True
+            user.save()
+            return redirect('view_bloodbank_profile') 
+    else:
+        return render(request,'accounts/bloodbank_verify.html')
 
-def requesters_donors_signup(request):
-    pass
+def bloodbanks_login(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        user = auth.authenticate(username=email,password=password)
+        if user is not None and user.user_type=='blood_banks':
+            auth.login(request,user,backend=None)
+            return redirect('bloodbanks_dashboard')
+        else:
+            return redirect('bloodbanks_login')
+    else:
+        return render(request,'accounts/bloodbanks_login.html')
 
-def requesters_donors_login(request):
-    pass
+def donors_requesters_signup(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        mobile_number = request.POST['mobile_number']
+        password = request.POST['password']
+        email_otp = generateOTP()
+        mobile_otp = generateOTP()
+        user = User(email=email, mobile_number=mobile_number, user_type='donors_requesters',email_otp=email_otp, mobile_otp=mobile_otp, is_admin=True)
+        user.set_password(password)
+        user.save()
+        mail_send("account_verification",email_otp,settings.EMAIL_HOST_USER,[email])
+        phone_otp_send(mobile_otp,mobile_number)
+        auth.login(request,user,backend=None)
+        return redirect('view_donors_requesters_profile')
+    else:
+        return render(request,'accounts/donors_requesters_signup.html')
 
-def password_authentication(request):
-    pass
+def donors_requesters_verify(request):
+    if request.method=='POST':
+        email_otp = request.POST['email_otp']
+        mobile_otp = request.POST['mobile_otp']
+        user = User.objects.filter(pk=request.user.pk).first()
+        if user.email_otp==email_otp and user.mobile_otp==mobile_otp:
+            user.is_email_verified=True
+            user.is_mobile_verified=True
+            user.save()
+            return redirect('view_donors_requesters_profile') 
+    else:
+        return render(request,'accounts/donors_requesters_verify.html')
 
-def otp_verification(request):
-    pass
+def donors_requesters_login(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        user = auth.authenticate(username=email,password=password)
+        if user is not None and user.user_type=='donors_requesters':
+            auth.login(request,user,backend=None)
+            return redirect('view_donors_requesters_profile')
+        else:
+            return redirect('donors_requesters_login')
+    else:
+        return render(request,'accounts/donors_requesters_login.html')
 
 def logout(request):
     auth.logout(request)

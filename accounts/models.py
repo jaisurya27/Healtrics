@@ -36,7 +36,7 @@ class MyUserManager(BaseUserManager):
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255,unique=True)
     mobile_number = models.TextField(max_length=255)
-    user_type = models.CharField(max_length=255, choices = [('hospitals','hospitals'),('blood_banks','blood_banks'),('donor_requesters','donor_requesters'),('admin','admin')])
+    user_type = models.CharField(max_length=255, choices = [('hospitals','hospitals'),('blood_banks','blood_banks'),('donors_requesters','donors_requesters'),('admin','admin')])
     user_id = models.UUIDField(default=uuid.uuid4, editable=False)
     email_otp = models.CharField(max_length=6, blank=True, null=True)
     mobile_otp = models.CharField(max_length=6, blank=True, null=True)
