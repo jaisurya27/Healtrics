@@ -1,0 +1,90 @@
+{% extends 'accounts/layout.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock %}
+
+
+{% block main %}
+<div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Verify OTP</h1>
+                            </div>
+                            <form class="user">
+                                <div class="container height-100 d-flex justify-content-center align-items-center">
+                                    <div class="position-relative">
+                                        <div class="card p-2 text-center" style="margin-bottom: 10px;"> 
+                                            <h6>Please enter the one time password <br>sent to your registered email</h6> 
+                                            
+                                            <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
+                                            </div> 
+                                            
+                                        </div> 
+                                            
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="container height-100 d-flex justify-content-center align-items-center">
+                                    <div class="position-relative">
+                                        <div class="card p-2 text-center" style="margin-bottom: 10px;"> 
+                                            <h6>Please enter the one time password <br>sent to your registered phone number</h6> 
+                                            
+                                            <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
+                                                <input class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
+                                            </div> 
+                                            
+                                        </div> 
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                                <a href="{% url 'add_donor' %}" class="btn btn-danger btn-user btn-block">
+                                    Verify
+                                </a>
+                                
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+  
+  function OTPInput() {
+const inputs = document.querySelectorAll('#otp > *[id]');
+for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ; if (i !==0) inputs[i - 1].focus(); } else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInput();
+
+    
+})</script>
+{% endblock %}
