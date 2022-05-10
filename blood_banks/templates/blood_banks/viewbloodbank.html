@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blood Banks - View Blood Bank</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+   
+
+        <!-- Sidebar -->
+        <div id="wrapper">  
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <img src="../img/logo.jpeg" width="40px">
+                    <div class="sidebar-brand-text mx-3">HEALTRICS</div>
+                </a>
+            
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+                
+             
+    
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                        aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                          
+                            <a class="collapse-item" href="addbloodbank.html">Add Profile</a>
+                            <a class="collapse-item" href="editbloodbank.html">Edit Profile</a>
+                            <a class="collapse-item" href="viewbloodbank.html">View Profile</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-archive"></i>
+                        <span>Camps</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="addcamp.html">Add Camps</a>
+                            <a class="collapse-item" href="editcamp.html">Edit Camps</a>
+                            <a class="collapse-item" href="viewcamp.html">View Camps</a>
+                            <a class="collapse-item" href="viewAnalysisofcamps.html">View Analysis of Camps</a>
+                            
+                        </div>
+                    </div>
+                </li>
+                 <!-- Nav Item - Pages Collapse Menu -->
+                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-tint"></i>
+                        <span>Blood Requests</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item " href="viewandacceptrequest.html">View and Accept Request</a>
+                        </div>
+                    </div>
+                </li>
+            
+            </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Alerts -->
+                        
+
+                        <!-- Nav Item - Messages -->
+                      
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle"
+                                src="../img/undraw_profile.svg">
+                        </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <img src="data:image/png;base64,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" width="350px">
+                        
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5>SVCE Blood Bank</h5>
+                              <p class="card-text">No 323,NSK Road,Vadapalani
+                              </p>
+                              <p class="card-text">Chennai-600345
+                                  <p class="card-text">Tamilnadu,India
+                            </p>
+                            </p>
+                            <p class="card-text">svcebloodbank@gmail.com<br>044-2760956
+                            </p>
+                            <p class="card-text">www.svceblood bank.com
+                            </p>
+                            
+                              
+                              <p class="card-text"><small class="text-muted">Uploaded 4 hours ago</small></p>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                  
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
