@@ -18,12 +18,12 @@ class Profile(models.Model):
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=10)
-    aadhar_number = models.TextField(unique=True)
+    aadhar_number = models.TextField(unique=True) 
     contact_email = models.EmailField(max_length=255)
     contact_number = models.Textfield(max_length=255)
     profile_pic = models.ImageField(upload_to='images/',null=True)
     last_donation_date = models.DateField()
-    coins_earned - models.IntegerField(default=0)
+    coins_earned = models.IntegerField(default=0)
 
 class ParticipateCamp(models.Model):
     blood_camp = models.ForeignKey(BloodCamp, on_delete=models.CASCADE)
