@@ -48,9 +48,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                       
-                        <a class="collapse-item" href="adddonor.html">Add Profile</a>
-                        <a class="collapse-item" href="editdonor.html">Edit Profile</a>
-                        <a class="collapse-item" href="viewdonor.html">View Profile</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_add_profile' %}">Add Profile</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_edit_profile' %}">Edit Profile</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_view_profile' %}">View Profile</a>
                     </div>
                 </div>
             </li>
@@ -63,9 +63,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="viewcamp-participated.html">Search</a>
-                        <a class="collapse-item" href="viewcamp-participated.html">Participated</a>
-                        <a class="collapse-item" href="viewcamp-ongoing.html">Ongoing</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_search_camps' %}">Search</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_view_camps_participated' %}">Participated</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_view_camps_upcoming' %}">upcoming</a>
                         
                     </div>
                 </div>
@@ -80,9 +80,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="addrequestforblood.html">Add Request</a>
-                        <a class="collapse-item " href="viewbloodrequests.html">View Request</a>
-                        <a class="collapse-item " href="viewandacceptrequest.html">View and Accept Request</a>
+                        <a class="collapse-item" href="{% url 'donors_requesters_add_donor_request' %}">Add Request</a>
+                        <a class="collapse-item " href="{% url 'donors_requesters_view_donor_requests' %}">View Request</a>
+                        <a class="collapse-item " href="{% url 'donors_requesters_view_blood_requests' %}">View and Accept Request</a>
                     </div>
                 </div>
             </li>

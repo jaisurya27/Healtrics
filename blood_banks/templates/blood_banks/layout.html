@@ -65,10 +65,10 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'add_camp' %}">Add Camps</a>
-                        <a class="collapse-item" href="{% url 'edit_camp' %">Edit Camps</a>
-                        <a class="collapse-item" href="{% url 'view_camps' %}">View Camps</a>
-                        <a class="collapse-item" href="{% url 'view_camp_analysis' %}">View Analysis of Camps</a>
+                        <a class="collapse-item" href="{% url 'blood_banks_add_camp' %}">Add Camps</a>
+                        <a class="collapse-item" href="{% url 'blood_banks_edit_camp' %">Edit Camps</a>
+                        <a class="collapse-item" href="{% url 'blood_banks_view_camps' %}">View Camps</a>
+                        <a class="collapse-item" href="{% url 'blood_banks_view_camp_analysis' %}">View Analysis of Camps</a>
                         
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="{% url 'view_accept_request' %}">View and Accept Request</a>
+                        <a class="collapse-item " href="{% url 'blood_banks_view_blood_requests' %}">View and Accept Request</a>
                     </div>
                 </div>
             </li>
@@ -129,7 +129,7 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{% url 'logout' %} " data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

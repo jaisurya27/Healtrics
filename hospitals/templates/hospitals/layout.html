@@ -44,20 +44,20 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                       
-                        <a class="collapse-item" href="addhospital.html">Add Profile</a>
-                        <a class="collapse-item" href="edithospital.html">Edit Profile</a>
-                        <a class="collapse-item" href="viewhospital.html">View Profile</a>
+                        <a class="collapse-item" href="{% url 'hospitals_add_profile' %}">Add Profile</a>
+                        <a class="collapse-item" href="{% url 'hospitals_edit_profile' %}">Edit Profile</a>
+                        <a class="collapse-item" href="{% url 'hospitals_view_profile' %}">View Profile</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="authenticate.html">
+                <a class="nav-link" href="{% url 'hospitals_authenticate_blood_requests' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Authenticate Blood Requests</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="track.html">
+                <a class="nav-link" href="{% url 'hospitals_track_blood_requests' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Track Blood Requests</span></a>
             </li>

@@ -21,6 +21,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Admin-Login</h1>
                                     </div>
                                     <form class="user">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -31,14 +32,14 @@
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                        
-                                        <a href="{% url 'home' %}" class="btn btn-danger btn-user btn-block">
+                                        <button type="submit" class="btn btn-danger btn-user btn-block">
                                             Login
                                         </a>
                                        
                                     <hr>
                                    
                                     <div class="text-center">
-                                        <a class="small" href="{% url 'admin_signup' %}" class="btn btn-">Create an Account!</a>
+                                        <a class="small" href="{% url 'admins_signup' %}" class="btn btn-">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

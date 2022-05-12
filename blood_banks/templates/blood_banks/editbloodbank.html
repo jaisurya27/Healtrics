@@ -16,7 +16,8 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Edit Blood Bank!</h1>
                         </div>
-                        <form class="user">
+                        <form class="user" action="">
+                            {% csrf_token %}
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="exampleFirstName"
@@ -353,21 +354,9 @@
                             </div></div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                    placeholder="Website Url"></div>
-                                    <div class="form-group">
-                                
-                                        Logo:<span style="display:inline-block; width:160px;"></span><input type="file" id="myfile" accept="image/jpeg,image/png">                                   
-                                </div> <hr>
-                                Certificates<hr>
-                                    <div class="form-group">
-                                
-                        BB Operating License:<span style="display:inline-block; width:35px;"></span>  <input type="file" id="myfile">                                    
-                </div> <div class="form-group">
-                                
-                    Certificate Of Accreditation:<span style="display:inline-block;"></span>   <input type="file" id="myfile">                                    
-                </div> 
-                            
-                            <a href="{% url 'view_bloodbank' %}" class="btn btn-primary btn-user btn-block">
+                                    placeholder="Website Url">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Edit Blood Bank
                             </a>
                             <hr>

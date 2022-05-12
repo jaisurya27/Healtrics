@@ -21,6 +21,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Verify OTP</h1>
                             </div>
                             <form class="user">
+                                {% csrf_token %}
                                 <div class="container height-100 d-flex justify-content-center align-items-center">
                                     <div class="position-relative">
                                         <div class="card p-2 text-center" style="margin-bottom: 10px;"> 
@@ -60,7 +61,7 @@
                                 </div>
                                 
                                 
-                                <a href="{% url 'add_donor' %}" class="btn btn-danger btn-user btn-block">
+                                <button type="submit" class="btn btn-danger btn-user btn-block">
                                     Verify
                                 </a>
                                 

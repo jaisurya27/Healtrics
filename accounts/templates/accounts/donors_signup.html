@@ -17,6 +17,7 @@
                         <h1 class="h4 text-gray-900 mb-4">Donors/Requesters-Signup</h1>
                     </div>
                     <form class="user">
+                        {% csrf_token %}
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input type="text" class="form-control form-control-user" id="exampleFirstName"
@@ -45,7 +46,7 @@
                                     id="exampleRepeatPassword" placeholder="Repeat Password">
                             </div>
                         </div>
-                        <a href="{% donors_requesters_verify %}" class="btn btn-danger btn-user btn-block">
+                        <button type="submit" class="btn btn-danger btn-user btn-block">
                             Register Account
                         </a>
                         
